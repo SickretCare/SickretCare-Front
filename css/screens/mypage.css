@@ -38,6 +38,11 @@ body {
   height: 50px;
 }
 
+.list {
+  width: 20px;
+  height: 16px;
+}
+
 /* main-content */
 .main-content {
   width: 100%;
