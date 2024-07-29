@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/168f1e1640.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>SickretCare</title>
+  </head>
+  <body>
+    <div class="notch-area"></div>
+    <div class="header-nav">
+      <a href="#" class="arrow-left"
+        ><i class="fa-solid fa-chevron-left"></i
+      ></a>
+      <span class="title">로그인</span>
+      <span class="spacer"></span>
+    </div>
+    <div class="main-content">
+      <div class="form-group">
+        <a href="#" id="login-logo"><img src="./img/logo.png" /></a>
+        <div class="form-label-group">
+          <label class="form-label">이메일</label>
+          <span></span>
+        </div>
+        <input
+          type="email"
+          class="form-input"
+          placeholder="이메일을 입력해주세요. "
+        />
+      </div>
+      <div class="form-group">
+        <div class="form-label-group">
+          <label class="form-label">비밀번호</label>
+          <span></span>
+        </div>
+        <input
+          type="password"
+          class="form-input"
+          placeholder="비밀번호를 입력해주세요. "
+        />
+      </div>
+      <label class="remember-me">
+        <input type="radio" />
+        <span>자동로그인</span>
+      </label>
+      <div class="wrap-login-btn">
+        <span id="login-msg">*이메일이나 비밀번호가 틀렸어요.</span>
+        <button class="login-btn">로그인</button>
+        <div class="login-btn-bottom">
+          <a href="./find-pw.html"><span>비밀번호 찾기</span></a>
+          <span style="padding: 0 5px">|</span>
+          <a href="./signup.html"><span>회원가입</span></a>
+        </div>
+      </div>
+    </div>
+    <footer></footer>
+  </body>
+</html>

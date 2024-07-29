@@ -1,0 +1,12 @@
+/* components */
+@import "components/nav-bar.css";
+
+/* screens */
+@import "screens/signup.css";
+@import "screens/delete-account.css";
+@import "screens/profile-edit.css";
+@import "screens/login.css";
+@import "screens/find-pw.css";
+@import "screens/mypage.css";
+@import "screens/alarm-set.css";
+@import "screens/alarm-edit.css";
