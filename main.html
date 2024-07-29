@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/ba49d39b5e.js" crossorigin="anonymous"></script>
+    <script src="./static/main.js"></script>
+    <title>sickretCare</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-spacer"></div>
+        <img class="logo" src="./img/logo.png" alt="로고 이미지">
+        <div class="menu-icon">
+            <div class="hamburger"></div>
+            <div class="hamburger"></div>
+            <div class="hamburger"></div>
+        </div>
+        <div class="dropdown-menu">
+            <button class="dropdown_button"><img src="./img/mainnav/mainnav_bell_img.png" id="drop1" alt=""></button>
+            <button class="dropdown_button"><img src="./img/mainnav/mainnav_timer_img.png" id="drop2" alt=""></button>
+            <button class="dropdown_button"><img src="./img/mainnav/mainnav_shop_img.png" id="drop3" alt=""></button>
+            <button class="dropdown_button"><img src="./img/mainnav/mainnav_community_img.png" id="drop4" alt=""></button>
+            <button class="dropdown_button"><img src="./img/mainnav/mainnav_my_img.png" id="drop5" alt=""></button>
+            <button class="logout_btn">로그아웃</button>
+        </div>    
+    </nav>
+    <div class="container">
+        <div class="middle">
+            <div class="middle_space">
+                <span class="middle_title">바로 실행하기</span>
+                <div class="button_container">
+                    <button>
+                        <img class="btn1_img" src="./img/button/timer_btn_img.png" alt="">
+                    </button>
+                    <button>
+                        <img class="btn2_img" src="./img/button/bell_btn_img.png" alt="">
+                    </button>
+                    <button>    
+                        <img class="btn3_img" src="./img/button/shop_btn_img.png" alt="">
+                    </button>
+                    <button>
+                        <img class="btn4_img" src="./img/button/like_btn_img.png" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <hr id="hr1">
+        <div class="ad_container">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide"><img src="./img/image1.png" alt="Image 1"></div>
+                    <div class="slide"><img src="./img/image2.png" alt="Image 2"></div>
+                    <div class="slide"><img src="./img/image3.png" alt="Image 3"></div>
+                </div>
+                <div class="dots">
+                    <div class="dot active"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <hr id="hr2">
+    <div class="bottom_container">
+        <div class="community_popular_container">
+            <div class="bottom_title">
+                <span>커뮤니티 인기글</span>
+                <a href="#">커뮤니티 바로가기 ></a>
+            </div>
+        </div>
+        <div class="community_popular">
+            <div class="community_popular_content">
+                <span id="community_pop_title">타이머 후기</span><br>
+                <span id="community_pop_subtitle">이거 괜찮네요!</span>
+            </div>
+            <hr id="hr1">
+            <div class="community_popular_content">
+                <span id="community_pop_title">타이머 후기</span><br>
+                <span id="community_pop_subtitle">이거 괜찮네요!</span>
+            </div>
+            <hr id="hr2">
+            <div class="community_popular_content">
+                <span id="community_pop_title">타이머 후기</span><br>
+                <span id="community_pop_subtitle">이거 괜찮네요!</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const dropdownBox = document.querySelector('.dropdown-menu');
+
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('open');
+            dropdownBox.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
