@@ -21,7 +21,8 @@
   width: 32px;
   height: 32px;
   transition: filter 0.3s ease; /* 필터를 사용하여 색상 전환 */
-  filter: brightness(0) invert(0.5); /* 기본 색상을 #7d7d7d로 설정 */
+  filter: brightness(0) saturate(100%) invert(49%) sepia(0%) saturate(0%)
+    hue-rotate(231deg) brightness(90%) contrast(90%);
 }
 
 .bottom-nav p {
@@ -30,12 +31,12 @@
   color: #7d7d7d;
 }
 
-.active img {
-  filter: invert(1) brightness(2); /* 클릭 시 색상을 하얀색으로 변경 */
+.bottom-nav a.active img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
+    hue-rotate(93deg) brightness(103%) contrast(103%);
 }
-
-.active p {
-  color: white; /* 클릭 시 텍스트 색상을 하얀색으로 변경 */
+.bottom-nav a.active p {
+  color: white;
 }
 
 .move-to-alarm,

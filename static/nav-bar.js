@@ -1,11 +1,31 @@
-document.querySelectorAll(".bottom-nav a").forEach((anchor) => {
-  anchor.addEventListener("click", (event) => {
-    event.preventDefault();
-    // 모든 아이콘과 텍스트 색상을 초기화
-    document.querySelectorAll(".bottom-nav a").forEach((a) => {
-      a.classList.remove("active");
+document.addEventListener("DOMContentLoaded", function () {
+  const navLinks = document.querySelectorAll(".bottom-nav a");
+  const currentPage = getCurrentPage();
+
+  function getCurrentPage() {
+    const path = window.location.pathname;
+    const page = path.substring(path.lastIndexOf("/") + 1);
+    return page.replace(".html", "") || "alarm-set";
+  }
+
+  function setActivePage(page) {
+    navLinks.forEach((link) => {
+      if (link.dataset.page === page) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
     });
-    // 클릭된 아이콘과 텍스트 색상을 하얀색으로 변경
-    anchor.classList.add("active");
+  }
+
+  setActivePage(currentPage);
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const page = this.dataset.page;
+      setActivePage(page);
+      window.location.href = this.href;
+    });
   });
 });
