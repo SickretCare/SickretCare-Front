@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <script
-      src="https://kit.fontawesome.com/ba49d39b5e.js"
+      src="https://kit.fontawesome.com/168f1e1640.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./static/main_navbar.js"></script>
     <script src="./static/bottom_navbar.js"></script>
+    <script src="./static/alarm-set.js"></script>
     <title>sickretCare</title>
   </head>
   <body>
     <div class="notch-area"></div>
-    <nav class="header-nav">
+    <div class="header-nav">
       <a href="#" class="header-logo">
         <img src="./img/logo.png" />
       </a>
-      <span class="title">마이페이지</span>
+      <span class="title">알람 설정</span>
       <div class="menu-icon">
         <div class="hamburger"></div>
         <div class="hamburger"></div>
@@ -46,36 +46,28 @@
         </button>
         <button class="logout_btn">로그아웃</button>
       </div>
-    </nav>
-    <div class="main-content">
-      <div class="profile-box">
-        <p id="profile-title">프로필</p>
-        <div class="profile-group">
-          <span class="profile-title">이메일</span>
-          <span class="profile-email">abc@gmail.com</span>
+    </div>
+    <div class="add-alarm-btn-wrap">
+      <button onclick="location.href='./alarm-add.html'" id="add-alarm-btn">
+        <i class="fa-solid fa-plus"></i> 새로운 알람 추가
+      </button>
+    </div>
+
+    <div class="alarm-container-wrap">
+      <div id="alarm-container">
+        <div class="alarm-group">
+          <div class="alarm-group-left">
+            <div class="alarm-name">변비 약</div>
+            <div class="alarm-clock">오전 9:30</div>
+          </div>
+          <div class="alarm-group-right">
+            <div class="alarm-edit">편집</div>
+            <div class="alarm-delete">삭제</div>
+          </div>
         </div>
-        <div class="profile-group">
-          <span class="profile-title">이름</span>
-          <span class="profile-name">홍길동</span>
-        </div>
-        <div class="profile-group">
-          <span class="profile-title">별명</span>
-          <span class="profile-nickname">아기사자</span>
-        </div>
-        <button class="move-to-edit">개인 정보 수정</button>
-        <a href="./delete-account.html">
-          <span class="move-to-delete">회원탈퇴</span>
-        </a>
-      </div>
-      <div class="profile-bottom-btn">
-        <button class="move-to-liked-posts" onclick="location.href='#'">
-          좋아요 표시한 게시물
-        </button>
-        <button class="move-to-my-posts" onclick="location.href='#'">
-          내가 작성한 게시물
-        </button>
       </div>
     </div>
+
     <div class="bottom-nav">
       <a href="./alarm-set.html" class="move-to-alarm" data-page="alarm-set">
         <img src="./img/alarm.svg" alt="알람 설정" />
@@ -90,5 +82,14 @@
         <p>마이페이지</p>
       </a>
     </div>
+    <script>
+      const menuIcon = document.querySelector(".menu-icon");
+      const dropdownBox = document.querySelector(".dropdown-menu");
+
+      menuIcon.addEventListener("click", () => {
+        menuIcon.classList.toggle("open");
+        dropdownBox.classList.toggle("open");
+      });
+    </script>
   </body>
 </html>

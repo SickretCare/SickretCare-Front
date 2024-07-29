@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/168f1e1640.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./static/bottom_navbar.js"></script>
+
+    <title>sickretCare</title>
+  </head>
+  <body>
+    <div class="notch-area"></div>
+    <div class="header-nav">
+      <a href="./alarm-set.html" class="arrow-left"
+        ><i class="fa-solid fa-chevron-left"></i
+      ></a>
+      <span class="title">알람 설정</span>
+      <div class="menu-icon">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+      </div>
+      <div class="dropdown-menu">
+        <button class="dropdown_button">
+          <img src="./img/mainnav/mainnav_bell_img.png" id="drop1" alt="" />
+        </button>
+        <button class="dropdown_button">
+          <img src="./img/mainnav/mainnav_timer_img.png" id="drop2" alt="" />
+        </button>
+        <button class="dropdown_button">
+          <img src="./img/mainnav/mainnav_shop_img.png" id="drop3" alt="" />
+        </button>
+        <button class="dropdown_button">
+          <img
+            src="./img/mainnav/mainnav_community_img.png"
+            id="drop4"
+            alt=""
+          />
+        </button>
+      </div>
+    </div>
+    <div class="main-content">
+      <div class="alarm-title-group">
+        <label class="alarm-title">알람 이름</label>
+        <input
+          type="text"
+          class="alarm-title-input"
+          placeholder="무슨 알람인지 입력해주세요."
+        />
+      </div>
+      <div class="alarm-set-group">
+        <label class="alarm-set">시간 설정</label>
+        <div class="scroll-container">
+          <div class="selection-box"></div>
+          <div class="scroll-select" id="hour-select">
+            <!-- 시간 옵션 -->
+          </div>
+          <div class="separator">:</div>
+          <div class="scroll-select" id="minute-select">
+            <!-- 분 옵션 -->
+          </div>
+          <div class="scroll-select-ampm" id="ampm-select">
+            <!-- 오전/오후 옵션 -->
+          </div>
+        </div>
+      </div>
+      <button class="alarm-add-btn">추가 완료</button>
+    </div>
+    <script>
+      const menuIcon = document.querySelector(".menu-icon");
+      const dropdownBox = document.querySelector(".dropdown-menu");
+
+      menuIcon.addEventListener("click", () => {
+        menuIcon.classList.toggle("open");
+        dropdownBox.classList.toggle("open");
+      });
+    </script>
+    <script src="./static/alarm-add.js"></script>
+  </body>
+</html>
