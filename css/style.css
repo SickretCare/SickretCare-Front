@@ -1,5 +1,7 @@
 /* components */
-@import "components/nav-bar.css";
+@import "./components/nav-bar.css";
+@import "./components/app.css";
+@import "./components/main_navbar.css";
 
 /* screens */
 @import "screens/signup.css";
@@ -10,3 +12,4 @@
 @import "screens/mypage.css";
 @import "screens/alarm-set.css";
 @import "screens/alarm-edit.css";
+@import "screens/main.css";
