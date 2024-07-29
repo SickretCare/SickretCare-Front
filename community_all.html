@@ -4,8 +4,223 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script
+      src="https://kit.fontawesome.com/168f1e1640.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./static/main_navbar.js"></script>
     <title>sickretCare</title>
 </head>
 <body>
+    <div class="notch-area"></div>
+    <div class="header-nav">
+      <a href="./login.html" class="header-logo"
+        ><img src="./img/logo.png"
+      /></a>
+      <span class="title">커뮤니티</span>
+      <div class="menu-icon">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+      </div>
+      <div class="dropdown-menu">
+        <button class="dropdown_button"><img src="./img/mainnav/mainnav_bell_img.png" id="drop1" alt=""></button>
+        <button class="dropdown_button"><img src="./img/mainnav/mainnav_timer_img.png" id="drop2" alt=""></button>
+        <button class="dropdown_button"><img src="./img/mainnav/mainnav_shop_img.png" id="drop3" alt=""></button>
+        <button class="dropdown_button"><img src="./img/mainnav/mainnav_community_img.png" id="drop4" alt=""></button>
+        <button class="dropdown_button"><img src="./img/mainnav/mainnav_my_img.png" id="drop5" alt=""></button>
+        <button class="logout_btn">로그아웃</button>
+      </div>    
+    </div>
+    <div class="hashtag_container">
+      <button id="hashtag_all">모두 보기</button>
+      <button id="hashtag_qusql">#변비</button>
+      <button id="hashtag_clwlf">#치질</button>
+      <button id="hashtag_rhktlastjd">#과민성 대장 증후군</button>
+    </div>
+    <div class="parent-container">
+      <div class="sort_buttons">
+        <a href="#" class="sort-link active">최신순</a>
+        <span>|</span>
+        <a href="#" class="sort-link">좋아요순</a>
+      </div>
+    </div>
+    <hr id="community_hr">
+    <!-- 게시글 여기서 innerHtml 하시면 됩니다. -->
+    <div class="scrollable-content">
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="community_all_content_tab">
+        <div class="community_all_content">
+          <span id="content_title">타이머 후기</span>
+          <span id="content_subtitle">이거 괜찮네요...</span>
+          <div class="community_all_bottom">
+            <span id="content_date">2024/7/20</span>
+            <div class="like-container">
+              <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+              <span class="like-count">123</span> <!-- 좋아요 개수 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="write_btn">작성</button>
+    <!-- 하단 네비게이션 시작 부분 -->
+    <div class="bottom-nav">
+      <a href="./alarm-set.html" class="move-to-alarm" data-page="alarm-set">
+        <img src="./img/alarm.svg" alt="알람 설정" />
+        <p>알람 설정</p>
+      </a>
+      <a href="#" class="move-to-timer" data-page="timer">
+        <img src="./img/timer.svg" alt="타이머" />
+        <p>타이머</p>
+      </a>
+      <a href="./mypage.html" class="move-to-mypage" data-page="mypage">
+        <img src="./img/mypage.svg" alt="마이페이지" />
+        <p>마이페이지</p>
+      </a>
+    </div>
 </body>
 </html>
