@@ -4,17 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>SickretCare</title>
+    <script
+      src="https://kit.fontawesome.com/ba49d39b5e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./static/bottom_navbar.js"></script>
+    <title>sickretCare</title>
   </head>
   <body>
     <div class="notch-area"></div>
-    <div class="header-nav">
-      <a href="./login.html" class="header-logo"
-        ><img src="./img/logo.png"
-      /></a>
-      <span class="title">마이페이지</span>
-      <img class="list" src="./img/list.png" />
-    </div>
+    <nav class="navbar">
+      <div class="left-spacer"></div>
+      <img class="logo" src="./img/logo.png" alt="로고 이미지" />
+      <div class="menu-icon">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+      </div>
+      <div class="dropdown-menu">
+        <button class="dropdown_button">
+          <img src="./img/mainnav/mainnav_bell_img.png" id="drop1" alt="" />
+        </button>
+        <button class="dropdown_button">
+          <img src="./img/mainnav/mainnav_timer_img.png" id="drop2" alt="" />
+        </button>
+        <button class="dropdown_button">
+          <img src="./img/mainnav/mainnav_shop_img.png" id="drop3" alt="" />
+        </button>
+        <button class="dropdown_button">
+          <img
+            src="./img/mainnav/mainnav_community_img.png"
+            id="drop4"
+            alt=""
+          />
+        </button>
+        <button class="dropdown_button">
+          <img src="./img/mainnav/mainnav_my_img.png" id="drop5" alt="" />
+        </button>
+        <button class="logout_btn">로그아웃</button>
+      </div>
+    </nav>
     <div class="main-content">
       <div class="profile-box">
         <p id="profile-title">프로필</p>
@@ -58,6 +87,15 @@
         <p>마이페이지</p>
       </a>
     </div>
-    <script src="./static/nav-bar.js"></script>
+
+    <script>
+      const menuIcon = document.querySelector(".menu-icon");
+      const dropdownBox = document.querySelector(".dropdown-menu");
+
+      menuIcon.addEventListener("click", () => {
+        menuIcon.classList.toggle("open");
+        dropdownBox.classList.toggle("open");
+      });
+    </script>
   </body>
 </html>
