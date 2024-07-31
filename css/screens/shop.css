@@ -1,0 +1,44 @@
+.shop_container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px;
+}
+
+.shop_tab {
+    display: flex;
+    flex-direction: column;
+    width: 148px;
+    height: 141px;
+    box-sizing: border-box; /* padding과 border를 포함한 박스 크기 계산 */
+    padding: 16px; /* 선택사항: 내부 여백 추가 */
+    margin-bottom: 50px;
+    margin-right: 30px;
+    color: white;
+}
+
+.shop_tab img {
+    width: 148px;
+    height: 90px;
+    border-radius: 10px;
+}
+
+.shop_tab span {
+    margin-top: 8px;
+}
+
+.stars {
+    display: flex;
+    margin-top: 8px;
+}
+
+.stars .fa-star, 
+.stars .fa-star-half-alt, 
+.stars .fa-star-o {
+    color: #FFD700; /* gold color for filled stars */
+    margin: 0 2px;
+    font-size: 10px;
+}
+
+.stars .fa-star-o {
+    color: #5A5A5A; /* grey color for empty stars */
+}
