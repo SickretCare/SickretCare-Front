@@ -44,10 +44,6 @@
     border: none;
 }
 
-.write_hashtag_container button:hover{
-    background-color: #3B89FF;
-}
-
 .write_save_btn {
     width: 200px;
     height: 45px;
@@ -72,9 +68,6 @@
     background-color: #9E9E9E;
 } 
 
-
-/* .write_save_btn:hover {
-    background-color: #336FCC; /* 어두운 파란색 */
 
 .write_save_btn.active {
     cursor: pointer;
