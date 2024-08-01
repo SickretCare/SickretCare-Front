@@ -1,0 +1,126 @@
+.hashtag_container_2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 16px 0;
+}
+
+.hashtag_container_2 button {
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 10px;
+  background-color: #2d2d2d;
+  color: white;
+  border: none;
+}
+
+.hashtag_container_2 button:hover {
+  background-color: #3b89ff;
+  cursor: pointer;
+}
+
+#community_hr {
+  border: none;
+  height: 0.5px;
+  background: #5a5a5a;
+}
+
+.community_all_content_tab {
+  display: flex;
+  width: 100%;
+  padding: 12px 20px 12px 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  border-bottom: 0.5px solid #5a5a5a;
+}
+
+.community_all_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+#content_title {
+  color: #fff;
+
+  /* Body2 */
+  font-family: "Pretendard Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#content_subtitle {
+  color: #fff;
+
+  /* Body1 */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#content_date {
+  color: var(--Gray4, var(--gray4, #7d7d7d));
+
+  /* Caption */
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.community_all_bottom {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  width: 100%;
+  justify-content: space-between; /* 자식 요소를 양 끝으로 정렬 */
+  align-items: center; /* 자식 요소를 수직으로 중앙 정렬 */
+  box-sizing: border-box; /* 패딩과 테두리가 전체 너비에 포함되도록 설정 */
+}
+
+.like-container {
+  display: flex; /* 아이콘과 좋아요 개수를 수평으로 배치 */
+  align-items: center; /* 아이콘과 개수를 수직으로 중앙 정렬 */
+  gap: 5px; /* 아이콘과 개수 사이의 간격 설정 */
+}
+
+.like-icon {
+  font-size: 14px; /* 하트 아이콘의 크기 설정 */
+  color: red; /* 하트 아이콘의 색상 설정 */
+}
+
+.like-count {
+  color: var(--Red, #ff3838);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+  /* 100% */
+}
+
+/* scroll */
+.scrollable-content {
+  max-height: calc(
+    100vh - 200px
+  ); /* 화면 높이에서 헤더 및 하단 네비게이션 바 높이만큼 제외 */
+  overflow-y: auto;
+}
+
+/* 스크롤바 숨기기 */
+.scrollable-content::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
