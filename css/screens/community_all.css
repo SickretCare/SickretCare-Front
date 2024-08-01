@@ -178,3 +178,13 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.selected-button {
+  background-color: #007BFF;
+  color: white;
+}
+
+.sort-link.active {
+  font-weight: bold;
+  color: white;
+}
