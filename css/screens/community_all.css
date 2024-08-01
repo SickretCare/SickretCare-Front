@@ -1,168 +1,180 @@
 .hashtag_container {
-    display: flex;
-    flex-wrap: wrap; 
-    justify-content: center;
-    gap: 15px; 
-    margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 16px;
 }
 
 .hashtag_container button {
-    padding: 8px 12px;
-    font-size: 12px; 
-    border-radius: 10px;
-    background-color: #2D2D2D;
-    color: white;
-    border: none;
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 10px;
+  background-color: #2d2d2d;
+  color: white;
+  border: none;
 }
 
-.hashtag_container button:hover{
-    background-color: #3B89FF;
+.hashtag_container button:hover {
+  background-color: #3b89ff;
+  cursor: pointer;
 }
 
 .parent-container {
-    display: flex; /* 부모 컨테이너를 Flexbox 레이아웃으로 설정 */
-    justify-content: flex-end; /* 자식 요소를 오른쪽 끝으로 정렬 */
-    padding: 10px; /* 선택 사항: padding 추가로 여백 조정 */
+  display: flex; /* 부모 컨테이너를 Flexbox 레이아웃으로 설정 */
+  justify-content: flex-end; /* 자식 요소를 오른쪽 끝으로 정렬 */
+  padding: 10px; /* 선택 사항: padding 추가로 여백 조정 */
 }
 
 .sort_buttons {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #7D7D7D;
-    font-family: Pretendard;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    padding-right: 17.13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7d7d7d;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-right: 17.13px;
 }
 .sort_buttons a {
-    text-decoration: none;
-    color: #7D7D7D;
-    font-family: Pretendard;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  text-decoration: none;
+  color: #7d7d7d;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .sort_buttons a:hover {
-    color: white;
+  color: white;
 }
 
-#community_hr{
-    border: none;
-    height: 0.5px;
-    background: #5A5A5A;
+#community_hr {
+  border: none;
+  height: 0.5px;
+  background: #5a5a5a;
 }
 
-.community_all_content_tab{
-    display: flex;
-    width: 100%;
-    padding: 12px 20px 12px 24px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 8px;
-    border-bottom: 0.5px solid #5A5A5A;
+.community_all_content_tab {
+  display: flex;
+  width: 100%;
+  padding: 12px 20px 12px 24px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  border-bottom: 0.5px solid #5a5a5a;
 }
 
-.community_all_content{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 8px;
+.community_all_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
 }
 
 #content_title {
-    color: #FFF;
+  color: #fff;
 
-    /* Body2 */
-    font-family: "Pretendard Variable";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  /* Body2 */
+  font-family: "Pretendard Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 #content_subtitle {
-    color: #FFF;
+  color: #fff;
 
-    /* Body1 */
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  /* Body1 */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 #content_date {
-    color: var(--Gray4, var(--gray4, #7D7D7D));
+  color: var(--Gray4, var(--gray4, #7d7d7d));
 
-    /* Caption */
-    font-family: Pretendard;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  /* Caption */
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .community_all_bottom {
-    display: flex; /* Flexbox 레이아웃 사용 */
-    width: 100%;
-    justify-content: space-between; /* 자식 요소를 양 끝으로 정렬 */
-    align-items: center; /* 자식 요소를 수직으로 중앙 정렬 */
-    box-sizing: border-box; /* 패딩과 테두리가 전체 너비에 포함되도록 설정 */
+  display: flex; /* Flexbox 레이아웃 사용 */
+  width: 100%;
+  justify-content: space-between; /* 자식 요소를 양 끝으로 정렬 */
+  align-items: center; /* 자식 요소를 수직으로 중앙 정렬 */
+  box-sizing: border-box; /* 패딩과 테두리가 전체 너비에 포함되도록 설정 */
 }
 
 .like-container {
-    display: flex; /* 아이콘과 좋아요 개수를 수평으로 배치 */
-    align-items: center; /* 아이콘과 개수를 수직으로 중앙 정렬 */
-    gap: 5px; /* 아이콘과 개수 사이의 간격 설정 */
+  display: flex; /* 아이콘과 좋아요 개수를 수평으로 배치 */
+  align-items: center; /* 아이콘과 개수를 수직으로 중앙 정렬 */
+  gap: 5px; /* 아이콘과 개수 사이의 간격 설정 */
 }
 
 .like-icon {
-    font-size: 14px; /* 하트 아이콘의 크기 설정 */
-    color: red; /* 하트 아이콘의 색상 설정 */
+  font-size: 14px; /* 하트 아이콘의 크기 설정 */
+  color: red; /* 하트 아이콘의 색상 설정 */
 }
 
 .like-count {
-    color: var(--Red, #FF3838);
-    text-align: center;
-    font-family: Pretendard;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 10px;
-    /* 100% */
+  color: var(--Red, #ff3838);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 10px;
+  /* 100% */
 }
 
 .write_btn {
-    position: fixed;
-    bottom: 120px; /* 하단 네비게이션 바 위에 배치되도록 설정 */
-    right: 15px; /* 오른쪽 여백 설정 */
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-    width: 84px;
-    height: 40px;
-    background: var(--Primary, #3B89FF);
-    text-align: center;
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    color: white;
-    border: none;
-    cursor: pointer;
-    z-index: 1000; /* 다른 요소 위에 오도록 설정 */
+  position: fixed;
+  bottom: 120px; /* 하단 네비게이션 바 위에 배치되도록 설정 */
+  right: 15px; /* 오른쪽 여백 설정 */
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  width: 84px;
+  height: 40px;
+  background: var(--Primary, #3b89ff);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1000; /* 다른 요소 위에 오도록 설정 */
 }
-
 
 /* scroll */
 .scrollable-content {
-    max-height: calc(100vh - 200px); /* 화면 높이에서 헤더 및 하단 네비게이션 바 높이만큼 제외 */
-    overflow-y: auto;
+  max-height: calc(
+    100vh - 200px
+  ); /* 화면 높이에서 헤더 및 하단 네비게이션 바 높이만큼 제외 */
+  overflow-y: auto;
+}
+
+/* 스크롤바 숨기기 */
+.scrollable-content::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable-content {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

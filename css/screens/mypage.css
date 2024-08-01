@@ -80,6 +80,7 @@
   border: none;
   border-radius: 10px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .main-content a {
@@ -91,6 +92,7 @@
   font-size: 10px;
   text-decoration: underline;
   color: #7d7d7d;
+  cursor: pointer;
 }
 
 /* profile-bottom-btn */
