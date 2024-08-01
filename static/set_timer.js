@@ -66,13 +66,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const timerminute = updateSelectedOption(timerSelect);
         if (timerminute) {
             const timerTime = parseInt(timerminute, 10);
-            alert(`${timerTime}분 설정되셨습니다.`);
+            const endTime = Date.now() + timerTime * 60000; // 현재 시간 + 설정된 시간(밀리초)
+
+            // 타이머 종료 시간을 로컬 저장소에 저장
+            localStorage.setItem('timerEndTime', endTime);
+            localStorage.setItem('timerDuration', timerTime);
+            
+            // 타이머 페이지로 이동
+            window.location.href = './main.html';
         } else {
-            alert('타이머 설정 해주세요.');
+            alert('타이머를 설정해 주세요.');
         }
     });
 
-    // Add scroll event listener to update selection
     timerSelect.addEventListener("scroll", () => {
         updateSelectedOption(timerSelect);
     });
