@@ -1,3 +1,12 @@
+.main_logo{
+    width: 96.25px;
+    height: 22.49px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
+
 .middle {
     display: flex;
     align-items: center;

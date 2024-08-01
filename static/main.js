@@ -17,3 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDots();
     }, 3000); // 슬라이드 변경 간격을 3초로 설정
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const startTimerBtn = document.querySelector('.timer-button');
+
+    startTimerBtn.addEventListener('click', () => {
+        const timerDuration = localStorage.getItem('timerDuration');
+
+        if (timerDuration) {
+            const endTime = Date.now() + parseInt(timerDuration, 10) * 60000; // 현재 시간 + 설정된 시간(밀리초)
+            localStorage.setItem('timerEndTime', endTime);
+            window.location.href = './view_timer.html'; // 타이머 페이지로 이동
+        } else {
+            alert('타이머가 설정되지 않았습니다. 타이머 설정 페이지로 이동합니다.');
+            window.location.href = './set_timer.html'; // 타이머 설정 페이지로 이동
+        }
+    });
+});
