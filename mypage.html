@@ -15,7 +15,7 @@
   <body>
     <div class="notch-area"></div>
     <nav class="header-nav">
-      <a href="#" class="header-logo">
+      <a href="./main.html" class="header-logo">
         <img src="./img/logo.png" />
       </a>
       <span class="title">마이페이지</span>
@@ -62,16 +62,27 @@
           <span class="profile-title">별명</span>
           <span class="profile-nickname">아기사자</span>
         </div>
-        <button class="move-to-edit">개인 정보 수정</button>
+        <button
+          class="move-to-edit"
+          onclick="location.href='./profile-edit.html'"
+        >
+          개인 정보 수정
+        </button>
         <a href="./delete-account.html">
           <span class="move-to-delete">회원탈퇴</span>
         </a>
       </div>
       <div class="profile-bottom-btn">
-        <button class="move-to-liked-posts" onclick="location.href='#'">
+        <button
+          class="move-to-liked-posts"
+          onclick="location.href='./liked-posts.html'"
+        >
           좋아요 표시한 게시물
         </button>
-        <button class="move-to-my-posts" onclick="location.href='#'">
+        <button
+          class="move-to-my-posts"
+          onclick="location.href='./my-posts.html'"
+        >
           내가 작성한 게시물
         </button>
       </div>

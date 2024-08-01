@@ -40,7 +40,7 @@
 .alarm-container-wrap {
   position: fixed;
   top: 190px;
-  bottom: 50px;
+  bottom: 80px;
   width: 100%;
   overflow-y: scroll;
   -ms-overflow-style: none;

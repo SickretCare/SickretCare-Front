@@ -1,12 +1,12 @@
-.hashtag_container {
+.hashtag_container_2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  margin-top: 16px;
+  margin: 16px 0;
 }
 
-.hashtag_container button {
+.hashtag_container_2 button {
   padding: 8px 12px;
   font-size: 12px;
   border-radius: 10px;
@@ -15,41 +15,9 @@
   border: none;
 }
 
-.hashtag_container button:hover {
+.hashtag_container_2 button:hover {
   background-color: #3b89ff;
   cursor: pointer;
-}
-
-.parent-container {
-  display: flex; /* 부모 컨테이너를 Flexbox 레이아웃으로 설정 */
-  justify-content: flex-end; /* 자식 요소를 오른쪽 끝으로 정렬 */
-  padding: 10px; /* 선택 사항: padding 추가로 여백 조정 */
-}
-
-.sort_buttons {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #7d7d7d;
-  font-family: Pretendard;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding-right: 17.13px;
-}
-.sort_buttons a {
-  text-decoration: none;
-  color: #7d7d7d;
-  font-family: Pretendard;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.sort_buttons a:hover {
-  color: white;
 }
 
 #community_hr {
@@ -137,28 +105,6 @@
   font-weight: 400;
   line-height: 10px;
   /* 100% */
-}
-
-.write_btn {
-  position: fixed;
-  bottom: 120px; /* 하단 네비게이션 바 위에 배치되도록 설정 */
-  right: 15px; /* 오른쪽 여백 설정 */
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 10px;
-  width: 84px;
-  height: 40px;
-  background: var(--Primary, #3b89ff);
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  color: white;
-  border: none;
-  cursor: pointer;
-  z-index: 1000; /* 다른 요소 위에 오도록 설정 */
 }
 
 /* scroll */
