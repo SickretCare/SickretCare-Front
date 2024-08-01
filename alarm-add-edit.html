@@ -54,21 +54,14 @@
       </div>
       <div class="alarm-set-group">
         <label class="alarm-set">시간 설정</label>
-        <div class="scroll-container">
-          <div class="selection-box"></div>
-          <div class="scroll-select" id="hour-select">
-            <!-- 시간 옵션 -->
-          </div>
+        <div class="alarm-picker">
+          <div class="alarm-scroll" id="hourScroll"></div>
           <div class="separator">:</div>
-          <div class="scroll-select" id="minute-select">
-            <!-- 분 옵션 -->
-          </div>
-          <div class="scroll-select-ampm" id="ampm-select">
-            <!-- 오전/오후 옵션 -->
-          </div>
+          <div class="alarm-scroll" id="minuteScroll"></div>
+          <div class="selection-box" id="selectionBox"></div>
         </div>
       </div>
-      <button class="alarm-add-btn">추가 완료</button>
+      <button class="alarm-add-edit-btn">추가 완료</button>
     </div>
     <script>
       const menuIcon = document.querySelector(".menu-icon");
@@ -79,6 +72,6 @@
         dropdownBox.classList.toggle("open");
       });
     </script>
-    <script src="./static/alarm-add.js"></script>
+    <script src="./static/alarm-add-edit.js"></script>
   </body>
 </html>

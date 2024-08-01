@@ -11,8 +11,10 @@
 @import "screens/find-pw.css";
 @import "screens/mypage.css";
 @import "screens/alarm-set.css";
-@import "screens/alarm-add.css";
+@import "screens/alarm-add-edit.css";
 @import "screens/main.css";
 @import "screens/community_all.css";
 @import "screens/write_community.css";
 @import "screens/set_timer.css";
+@import "screens/shop.css";
+@import "screens/community_detail.css";
