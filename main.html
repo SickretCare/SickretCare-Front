@@ -29,67 +29,99 @@
             <button class="logout_btn">로그아웃</button>
         </div>    
     </nav>
-    <div class="container">
-        <div class="middle">
-            <div class="middle_space">
-                <span class="middle_title">바로 실행하기</span>
-                <div class="button_container">
-                    <button>
-                        <img class="btn1_img" src="./img/button/timer_btn_img.png" alt="">
-                    </button>
-                    <button>
-                        <img class="btn2_img" src="./img/button/bell_btn_img.png" alt="">
-                    </button>
-                    <button>    
-                        <img class="btn3_img" src="./img/button/shop_btn_img.png" alt="">
-                    </button>
-                    <button>
-                        <img class="btn4_img" src="./img/button/like_btn_img.png" alt="">
-                    </button>
+    <div class="scrollable-content">
+        <div class="container">
+            <div class="middle">
+                <div class="middle_space">
+                    <span class="middle_title">바로 실행하기</span>
+                    <div class="button_container">
+                        <button>
+                            <img class="btn1_img" src="./img/button/timer_btn_img.png" alt="">
+                        </button>
+                        <button>
+                            <img class="btn2_img" src="./img/button/bell_btn_img.png" alt="">
+                        </button>
+                        <button>    
+                            <img class="btn3_img" src="./img/button/shop_btn_img.png" alt="">
+                        </button>
+                        <button>
+                            <img class="btn4_img" src="./img/button/like_btn_img.png" alt="">
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <hr id="hr1">
-        <div class="ad_container">
-            <div class="slider">
-                <div class="slides">
-                    <div class="slide"><img src="./img/image1.png" alt="Image 1"></div>
-                    <div class="slide"><img src="./img/image2.png" alt="Image 2"></div>
-                    <div class="slide"><img src="./img/image3.png" alt="Image 3"></div>
-                </div>
-                <div class="dots">
-                    <div class="dot active"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-    <hr id="hr2">
-    <div class="bottom_container">
-        <div class="community_popular_container">
-            <div class="bottom_title">
-                <span>커뮤니티 인기글</span>
-                <a href="#">커뮤니티 바로가기 ></a>
-            </div>
-        </div>
-        <div class="community_popular">
-            <div class="community_popular_content">
-                <span id="community_pop_title">타이머 후기</span><br>
-                <span id="community_pop_subtitle">이거 괜찮네요!</span>
             </div>
             <hr id="hr1">
-            <div class="community_popular_content">
-                <span id="community_pop_title">타이머 후기</span><br>
-                <span id="community_pop_subtitle">이거 괜찮네요!</span>
-            </div>
-            <hr id="hr2">
-            <div class="community_popular_content">
-                <span id="community_pop_title">타이머 후기</span><br>
-                <span id="community_pop_subtitle">이거 괜찮네요!</span>
+            <div class="ad_container">
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide"><img src="./img/image1.png" alt="Image 1"></div>
+                        <div class="slide"><img src="./img/image2.png" alt="Image 2"></div>
+                        <div class="slide"><img src="./img/image3.png" alt="Image 3"></div>
+                    </div>
+                    <div class="dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                
             </div>
         </div>
+        <hr id="hr2">
+        <div class="bottom_container">
+            <div class="community_popular_container">
+                <div class="bottom_title">
+                    <span>커뮤니티 인기글</span>
+                    <a href="#">커뮤니티 바로가기 ></a>
+                </div>
+            </div>    
+                <div class="community_popular">
+                    <div class="community_popular_content_tab">
+                        <span id="community_pop_title">타이머 후기</span><br>
+                        <div class="community_pop_subcontainer">
+                            <span id="community_pop_subtitle">식단에 어떤 음식을 추가하면 변비 완화에 도움이 되나요?</span>
+                        </div>
+                        <div class="like-container">
+                            <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+                            <span class="like-count">123</span> <!-- 좋아요 개수 -->
+                        </div>
+                    </div>
+                    <div class="community_popular_content_tab">
+                        <span id="community_pop_title">타이머 후기</span><br>
+                        <div class="community_pop_subcontainer">
+                            <span id="community_pop_subtitle">이거 괜찮네요!</span>
+                        </div>
+                        <div class="like-container">
+                            <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+                            <span class="like-count">123</span> <!-- 좋아요 개수 -->
+                        </div>
+                    </div>
+                    <div class="community_popular_content_tab">
+                        <span id="community_pop_title">타이머 후기</span><br>
+                        <div class="community_pop_subcontainer">
+                            <span id="community_pop_subtitle">이거 괜찮네요!</span>
+                        </div>
+                        <div class="like-container">
+                            <i class="fa-solid fa-heart like-icon"></i> <!-- 하트 아이콘 -->
+                            <span class="like-count">123</span> <!-- 좋아요 개수 -->
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <div class="bottom-nav">
+        <a href="./alarm-set.html" class="move-to-alarm" data-page="alarm-set">
+          <img src="./img/alarm.svg" alt="알람 설정" />
+          <p>알람 설정</p>
+        </a>
+        <a href="#" class="move-to-timer" data-page="timer">
+          <img src="./img/timer.svg" alt="타이머" />
+          <p>타이머</p>
+        </a>
+        <a href="./mypage.html" class="move-to-mypage" data-page="mypage">
+          <img src="./img/mypage.svg" alt="마이페이지" />
+          <p>마이페이지</p>
+        </a>
     </div>
 </body>
 </html>
