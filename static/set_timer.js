@@ -1,36 +1,79 @@
-// script.js
 document.addEventListener("DOMContentLoaded", () => {
-    const minuteBox = document.getElementById("minute-box");
-    const highlightBox = document.querySelector(".highlight-box");
-    const setMinuteBtn = document.getElementById("set-minute-btn");
-    const selectedMinuteDisplay = document.getElementById("selected-minute");
+    const timerSelect = document.querySelector("#timer-minuteScroll");
+    const settimerBtn = document.querySelector(".timer-add-edit-btn");
 
-    // 분 옵션을 동적으로 생성
-    for (let i = 1; i < 16; i++) {
-        const option = document.createElement("div");
-        option.className = "option";
-        option.textContent = i < 10 ? '0' + i : i;
-        minuteBox.appendChild(option);
+    function createOptions(container, start, end, padding = true) {
+        container.innerHTML = "";
+
+        // 상단 패딩
+        if (padding) {
+            for (let i = 0; i < 2; i++) {
+                const padDiv = document.createElement("div");
+                padDiv.className = "scroll-option pad";
+                container.appendChild(padDiv);
+            }
+        }
+
+        for (let i = start; i <= end; i++) {
+            const div = document.createElement("div");
+            div.className = "scroll-option";
+            div.textContent = i < 10 ? "0" + i : i;
+            container.appendChild(div);
+        }
+
+        // 하단 패딩
+        if (padding) {
+            for (let i = 0; i < 2; i++) {
+                const padDiv = document.createElement("div");
+                padDiv.className = "scroll-option pad";
+                container.appendChild(padDiv);
+            }
+        }
     }
 
-    function updateHighlightBox() {
-        const options = minuteBox.querySelectorAll(".option");
-        const scrollTop = minuteBox.scrollTop;
-        const optionHeight = options[0].offsetHeight;
-        const visibleHeight = minuteBox.offsetHeight;
-        const centerIndex = Math.floor((scrollTop + visibleHeight / 2) / optionHeight);
+    function updateSelectedOption(selectElement) {
+        const options = selectElement.querySelectorAll(".scroll-option:not(.pad)");
+        const scrollTop = selectElement.scrollTop;
+        const optionHeight = 40;
+        const containerHeight = selectElement.clientHeight;
+        const middleOffset = containerHeight / 2 - optionHeight / 2;
+
+        const selectedIndex =
+            Math.round((scrollTop + middleOffset) / optionHeight) - 2;
+
+        options.forEach((option, index) => {
+            option.classList.toggle("selected", index === selectedIndex);
+        });
+
+        return options[selectedIndex] ? options[selectedIndex].textContent : null;
     }
 
-    minuteBox.addEventListener("scroll", updateHighlightBox);
+    // 스크롤 위치 설정하는 함수
+    function setScrollPosition(element, value) {
+        const optionHeight = 40;
+        element.scrollTop = value * optionHeight;
+        updateSelectedOption(element);
+    }
 
-    setMinuteBtn.addEventListener("click", () => {
-        const highlightedOption = [...minuteBox.querySelectorAll(".option")].find(option => option.style.color === "white");
-        if (highlightedOption) {
-            const selectedMinute = highlightedOption.textContent;
-            selectedMinuteDisplay.textContent = `선택한 분: ${selectedMinute}분`;
+    function setdefaulttimerTime(){
+        setScrollPosition(timerSelect, 5);
+    }
+
+    createOptions(timerSelect, 5, 15);
+    setdefaulttimerTime();
+
+    settimerBtn.addEventListener("click", () => {
+        const timerminute = updateSelectedOption(timerSelect);
+        if (timerminute) {
+            const timerTime = parseInt(timerminute, 10);
+            alert(`${timerTime}분 설정되셨습니다.`);
+        } else {
+            alert('타이머 설정 해주세요.');
         }
     });
 
-    // 초기 스크롤 시 중앙 옵션 강조
-    updateHighlightBox();
+    // Add scroll event listener to update selection
+    timerSelect.addEventListener("scroll", () => {
+        updateSelectedOption(timerSelect);
+    });
 });
