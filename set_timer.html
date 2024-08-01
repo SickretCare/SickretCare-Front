@@ -9,8 +9,8 @@
       src="https://kit.fontawesome.com/168f1e1640.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./static/set_timer.js"></script>
-    <script src="./static/main_navbar.js"></script>
+    <!-- <script src="./static/alarm-add-edit.js"></script>
+    <script src="./static/main_navbar.js"></script> -->
     <title>sickretCare</title>
 </head>
 <body>
@@ -34,15 +34,15 @@
         <button class="logout_btn">로그아웃</button>
       </div>    
     </div>
-    <div class="timer_container">
-        <div class="minute-picker">
-            <div class="scroll-container">
-                <div class="scroll-box" id="minute-box">
-                </div>
-                <div class="highlight-box"></div>
-            </div>
+    <div class="main-content">
+      <div class="timer-set-group">
+        <label class="timer-set">시간 설정</label>
+        <div class="timer-picker">
+          <div class="timer-scroll" id="minuteScroll"></div>
+          <div class="timer-selection-box" id="selectionBox"></div>
         </div>
-        <button id="set-minute-btn">분 설정</button>
+      </div>
+      <button class="timer-add-edit-btn">설정 완료</button>
     </div>
 </body>
 </html>

@@ -73,6 +73,16 @@
 } 
 
 
-.write_save_btn:hover {
+/* .write_save_btn:hover {
     background-color: #336FCC; /* 어두운 파란색 */
+
+.write_save_btn.active {
+    cursor: pointer;
+    opacity: 1;
+    background-color: #336FCC;
+}
+
+.hashtag-btn.selected {
+    background-color: #336FCC;
+    color: #fff;
 }
