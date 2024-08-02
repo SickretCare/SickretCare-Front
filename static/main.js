@@ -34,3 +34,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const alarmBtn = document.querySelector('.quick_alarm_button');
+    const shopBtn = document.querySelector('.quick_shop_button');
+    const likeBtn = document.querySelector('.quick_like_button');
+
+    alarmBtn.addEventListener('click', () => {
+        window.location.href = './alarm-set.html'
+    });
+    shopBtn.addEventListener('click', () => {
+        window.location.href = './shop.html';
+    })
+    likeBtn.addEventListener('click', () => {
+        window.location.href = './liked-posts.html';
+    })
+});
