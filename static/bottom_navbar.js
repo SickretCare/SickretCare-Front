@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function getCurrentPage() {
     const path = window.location.pathname;
     const page = path.substring(path.lastIndexOf("/") + 1);
-    return page.replace(".html", "") || "alarm-set";
+    const pageName = page.replace(".html", "") || "alarm-set";
+    return pageName === "view_timer" ? "timer" : pageName;
   }
 
   function setActivePage(page) {

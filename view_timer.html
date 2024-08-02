@@ -1,43 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/ba49d39b5e.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/ba49d39b5e.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./static/view_timer.js"></script>
-    <link rel="stylesheet" href="./css/screens/view_timer.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <script src="./static/bottom_navbar.js"></script>
+    <link rel="stylesheet" href="./css/screens/view_timer.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>sickretCare</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="notch-area"></div>
     <nav class="navbar">
-        <a href="./main.html" class="arrow-left"
+      <a href="./main.html" class="arrow-left"
         ><i class="fa-solid fa-chevron-left"></i
-        ></a>
-        <span class="title">타이머 설정</span>
-        <div class="menu-icon">
-            <div class="hamburger"></div>
-            <div class="hamburger"></div>
-            <div class="hamburger"></div>
-        </div>
-        <div class="dropdown-menu">
-            <button class="dropdown_button"><a href="./alarm-set.html"><img src="./img/mainnav/mainnav_bell_img.png" id="drop1" alt=""></a></button>
-            <button class="dropdown_button"><a href="./set_timer.html"><img src="./img/mainnav/mainnav_timer_img.png" id="drop2" alt=""></a></button>
-            <button class="dropdown_button"><a href="./shop.html"><img src="./img/mainnav/mainnav_shop_img.png" id="drop3" alt=""></a></button>
-            <button class="dropdown_button"><a href="./community_all.html"><img src="./img/mainnav/mainnav_community_img.png" id="drop4" alt=""></a></button>
-            <button class="dropdown_button"><a href="./mypage.html"><img src="./img/mainnav/mainnav_my_img.png" id="drop5" alt=""></a></button>
-            <button class="logout_btn">로그아웃</button>
-        </div>    
+      ></a>
+      <span class="title">타이머 설정</span>
+      <div class="menu-icon">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+      </div>
+      <div class="dropdown-menu">
+        <button class="dropdown_button">
+          <a href="./alarm-set.html"
+            ><img src="./img/mainnav/mainnav_bell_img.png" id="drop1" alt=""
+          /></a>
+        </button>
+        <button class="dropdown_button">
+          <a href="./set_timer.html"
+            ><img src="./img/mainnav/mainnav_timer_img.png" id="drop2" alt=""
+          /></a>
+        </button>
+        <button class="dropdown_button">
+          <a href="./shop.html"
+            ><img src="./img/mainnav/mainnav_shop_img.png" id="drop3" alt=""
+          /></a>
+        </button>
+        <button class="dropdown_button">
+          <a href="./community_all.html"
+            ><img
+              src="./img/mainnav/mainnav_community_img.png"
+              id="drop4"
+              alt=""
+          /></a>
+        </button>
+        <button class="dropdown_button">
+          <a href="./mypage.html"
+            ><img src="./img/mainnav/mainnav_my_img.png" id="drop5" alt=""
+          /></a>
+        </button>
+        <button class="logout_btn">로그아웃</button>
+      </div>
     </nav>
-    <div class="timer-container">
+    <div class="timer-container-wrap">
+      <div class="timer-container">
         <div class="circle">
-            <div class="inner">
-                <div class="timer-text" id="timerText">00:00</div>
-            </div>
-            <div class="overlay" id="timerOverlay"></div>
+          <div class="overlay" id="timerOverlay"></div>
+          <div class="inner">
+            <div class="timer-text" id="timerText">00:00</div>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+
+    <div class="bottom-nav">
+      <a href="./alarm-set.html" class="move-to-alarm" data-page="alarm-set">
+        <img src="./img/alarm.svg" alt="알람 설정" />
+        <p>알람 설정</p>
+      </a>
+      <a href="./view_timer.html" class="move-to-timer" data-page="timer">
+        <img src="./img/timer.svg" alt="타이머" />
+        <p>타이머</p>
+      </a>
+      <a href="./mypage.html" class="move-to-mypage" data-page="mypage">
+        <img src="./img/mypage.svg" alt="마이페이지" />
+        <p>마이페이지</p>
+      </a>
+    </div>
+  </body>
 </html>
