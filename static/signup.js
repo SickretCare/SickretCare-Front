@@ -75,14 +75,60 @@ document.addEventListener("DOMContentLoaded", function () {
     input.addEventListener("input", validateForm);
   });
 
-  signupBtn.addEventListener("click", function (event) {
-    if (!signupBtn.disabled) {
-      window.location.href = "./login.html";
-    } else {
-      event.preventDefault();
+  signupBtn.addEventListener("click", async function () {
+    if (signupBtn.disabled) return;
+  
+    const email = emailInput.value;
+    const password = passwordInput.value;
+    const passwordConfirm = passwordConfirmInput.value;
+    const name = nameInput.value;
+    const nickname = nicknameInput.value;
+  
+    const formData = {
+      email: email,
+      password1: password,
+      password2: passwordConfirm,
+      username: name,
+      nickname: nickname
+    };
+    
+    const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/';
+    try {
+      const response = await fetch(API_SERVER_DOMAIN + "users/signup/", {
+        method: "POST",
+        credentials: 'include',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+  
+      if (response.status === 201) {
+        // 회원가입 성공 후 처리
+        window.location.href = "./login.html";
+      } else {
+        const result = await response.json();
+  
+        if (response.status === 400) {
+          alert("비밀번호가 일치하지 않거나 공백값이 있습니다.");
+        } else if (response.status === 409) {
+          if (result.email) {
+            emailMsg.style.display = "inline";
+          }
+          if (result.nickname) {
+            nicknameMsg.style.display = "inline";
+          }
+        } else {
+          alert("알 수 없는 오류가 발생했습니다.");
+        }
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("서버와의 통신 중 오류가 발생했습니다.");
     }
   });
-
+  
   // 초기 상태 설정
   validateForm();
+  
 });
