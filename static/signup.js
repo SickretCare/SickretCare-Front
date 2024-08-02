@@ -10,9 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const pwMsg = document.getElementById("pw-msg");
   const nicknameMsg = document.getElementById("nickname-msg");
 
-  const existingEmails = ["test@example.com"];
-  const existingNicknames = ["user123"];
-
   // 모든 오류 메시지를 초기에 숨김
   [emailMsg, pwMsg, nicknameMsg].forEach((msg) => {
     if (msg) msg.style.display = "none";
@@ -21,13 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function validateForm() {
     let isValid = true;
 
-    // 이메일 유효성 검사
-    if (existingEmails.includes(emailInput.value)) {
-      emailMsg.style.display = "inline";
-      isValid = false;
-    } else {
-      emailMsg.style.display = "none";
-    }
 
     // 비밀번호 확인 유효성 검사
     if (passwordInput.value !== passwordConfirmInput.value) {
@@ -37,13 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
       pwMsg.style.display = "none";
     }
 
-    // 별명 유효성 검사
-    if (existingNicknames.includes(nicknameInput.value)) {
-      nicknameMsg.style.display = "inline";
-      isValid = false;
-    } else {
-      nicknameMsg.style.display = "none";
-    }
 
     // 모든 입력 필드가 채워졌는지 확인
     const allFieldsFilled = [
@@ -108,14 +91,16 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "./login.html";
       } else {
         const result = await response.json();
+        console.log(result);
   
         if (response.status === 400) {
           alert("비밀번호가 일치하지 않거나 공백값이 있습니다.");
         } else if (response.status === 409) {
-          if (result.email) {
+          console.log(response.status);
+          if (result.error.includes("이메일이 중복됩니다.")) {
             emailMsg.style.display = "inline";
           }
-          if (result.nickname) {
+          if (result.error.includes("닉네임이 중복됩니다.")) {
             nicknameMsg.style.display = "inline";
           }
         } else {
