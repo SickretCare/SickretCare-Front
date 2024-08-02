@@ -1,32 +1,88 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 평점 데이터를 백엔드에서 받아왔다고 가정
-    const ratingData = [
-        { id: 1, rating: 3.5 },
-        { id: 2, rating: 5 } // 예시: 첫 번째 상품의 평점이 3.5
-    ];
+    const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/';
+    const shopContainer = document.querySelector('.shop_container');
+    let allProducts = [];
 
-    // 별점을 생성하는 함수
-    function createStars(rating, elementId) {
-        const starContainer = document.getElementById(elementId);
+    function createStars(rating) {
         const fullStars = Math.floor(rating);
         const halfStar = rating % 1 !== 0;
         const emptyStars = 5 - Math.ceil(rating);
+        let starsHtml = '';
 
         for (let i = 0; i < fullStars; i++) {
-            starContainer.innerHTML += '<i class="fas fa-star"></i>';
+            starsHtml += '<i class="fas fa-star"></i>';
         }
 
         if (halfStar) {
-            starContainer.innerHTML += '<i class="fas fa-star-half-alt"></i>';
+            starsHtml += '<i class="fas fa-star-half-alt"></i>';
         }
 
         for (let i = 0; i < emptyStars; i++) {
-            starContainer.innerHTML += '<i class="far fa-star"></i>';
+            starsHtml += '<i class="far fa-star"></i>';
+        }
+
+        return starsHtml;
+    }
+
+    function createProductTab(product) {
+        const productTab = document.createElement('div');
+        productTab.classList.add('shop_tab');
+        productTab.innerHTML = `
+            <img src="${product.image_link}" alt="상품 사진" />
+            <span>${product.title}</span>
+            <span><span>${product.price.toLocaleString()}</span>원</span>
+            <div class="stars">${createStars(product.stars)}</div>
+        `;
+        shopContainer.appendChild(productTab);
+    }
+
+    function displayProducts(products) {
+        shopContainer.innerHTML = ''; // 기존 제품 목록을 초기화
+        products.forEach(product => {
+            createProductTab(product);
+        });
+    }
+
+    function fetchProducts() {
+        fetch(`${API_SERVER_DOMAIN}posts/commodity/list/`, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyNTM1OTYyLCJpYXQiOjE3MjI1MzUwNjIsImp0aSI6ImZjYjdkMzQxZjhlYzQwN2RhYzYxMjhmOWIwOGJiMWIyIiwidXNlcl9pZCI6MX0.qbs66A5yF8XBEneWnMqTXOcbjuGGQyOypp4fsLrpUZo',
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            allProducts = data;
+            displayProducts(allProducts);
+        })
+        .catch(error => console.error('Error fetching products:', error));
+    }
+
+    function filterProducts(category) {
+        if (category === '') {
+            displayProducts(allProducts);
+        } else {
+            const filteredProducts = allProducts.filter(product => product.category.name === category);
+            displayProducts(filteredProducts);
         }
     }
 
-    // 평점 데이터를 사용하여 별점을 생성
-    ratingData.forEach(item => {
-        createStars(item.rating, `rating-${item.id}`);
+    document.querySelectorAll('.hashtag_button').forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.dataset.category;
+            filterProducts(category);
+        });
     });
+
+    document.getElementById('hashtag_all').addEventListener('click', function() {
+        filterProducts('');
+    });
+
+    // 페이지 로드 시 전체 제품 목록을 가져옴
+    fetchProducts();
 });
