@@ -2,19 +2,33 @@ document.addEventListener("DOMContentLoaded", async function () {
     const profileEmail = document.querySelector(".profile-email");
     const profileName = document.querySelector(".profile-name");
     const profileNickname = document.querySelector(".profile-nickname");
+
+    // 쿠키에서 accessToken을 가져오는 함수
+    function getCookie(name) {
+        let value = `; ${document.cookie}`;
+        let parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    // accessToken 가져오기
+    const accessToken = getCookie("accessToken");
     
     const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/';
   
     try {
         const response = await fetch(API_SERVER_DOMAIN + 'users/', {
             method: 'GET',
-            credentials: 'include' // 쿠키를 포함하여 요청을 전송
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
         });
-  
+        
+        console.log(response);
+
         if (response.status === 200) {
             const result = await response.json();
             profileEmail.textContent = result.email;
-            profileName.textContent = result.username; // Assuming username is the name
+            profileName.textContent = result.username; 
             profileNickname.textContent = result.nickname;
         } else if (response.status === 401) {
             alert('로그인이 필요합니다.');

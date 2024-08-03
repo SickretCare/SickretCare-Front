@@ -1,3 +1,29 @@
+//set cookie, get cookie 함수 생성
+function setCookie(name, value, days) {
+  var expires = "";
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var cookies = document.cookie.split(";");
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    while (cookie.charAt(0) === " ") {
+      cookie = cookie.substring(1, cookie.length);
+    }
+    if (cookie.indexOf(nameEQ) === 0) {
+      return cookie.substring(nameEQ.length, cookie.length);
+    }
+  }
+  return null;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const loginBtn = document.querySelector(".login-btn");
   const emailInput = document.querySelector('input[type="email"]');
@@ -18,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         const response = await fetch(API_SERVER_DOMAIN + 'users/login/', {
           method: 'POST',
-          credentials: 'include',
           headers: {
             'Content-Type': 'application/json'
           },
@@ -29,6 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (response.status === 200) {
           //로그인 성공
+          // 로그인 성공: 쿠키에 토큰 저장
+          setCookie('access_token', result.access_token, 7);
+          setCookie('refresh_token', result.refresh_token, 7);
           console.log('로그인 성공:', result);
           window.location.href = './main.html';
         } else if (response.status === 401) {
