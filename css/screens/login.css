@@ -84,17 +84,17 @@
 }
 
 /* 기본 라디오 버튼 숨기기 */
-.remember-me input[type="radio"] {
+.remember-me input[type="checkbox"] {
   display: none;
 }
 
 /* 사용자 정의 라디오 버튼 */
-.remember-me input[type="radio"] + span {
+.remember-me input[type="checkbox"] + span {
   display: flex;
   align-items: center;
 }
 
-.remember-me input[type="radio"] + span::before {
+.remember-me input[type="checkbox"] + span::before {
   content: "";
   display: inline-block;
   width: 16px;
@@ -107,7 +107,7 @@
 }
 
 /* 라디오 버튼이 선택된 경우 스타일 변경 */
-.remember-me input[type="radio"]:checked + span::before {
+.remember-me input[type="checkbox"]:checked + span::before {
   background-color: #3b89ff;
   border-color: #383838;
 }
