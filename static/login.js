@@ -4,30 +4,55 @@ document.addEventListener("DOMContentLoaded", function () {
   const passwordInput = document.querySelector('input[type="password"]');
   const loginMsg = document.getElementById("login-msg");
 
+  const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/';
+
   loginMsg.style.display = "none";
 
-  // 모의 사용자 데이터
-  const mockUserData = {
-    "user@example.com": "password123",
-  };
-
-  loginBtn.addEventListener("click", function (e) {
+  loginBtn.addEventListener("click", async function (e) {
     e.preventDefault();
 
     const email = emailInput.value.trim();
     const password = passwordInput.value.trim();
 
     if (email !== "" && password !== "") {
-      if (mockUserData[email] === password) {
-        window.location.href = "./main.html";
-      } else {
-        loginMsg.textContent = "*이메일이나 비밀번호가 틀렸어요.";
-        loginMsg.style.display = "block";
+      try {
+        const response = await fetch(API_SERVER_DOMAIN + 'users/login/', {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200) {
+          //로그인 성공
+          console.log('로그인 성공:', result);
+          window.location.href = './main.html';
+        } else if (response.status === 401) {
+          //비밀번호가 틀리면
+          loginMsg.textContent = '비밀번호가 틀렸습니다.';
+          loginMsg.style.display = 'block';
+        } else if (response.status === 404) {
+          //이메일로 가입된 계정이 없으면
+          loginMsg.textContent = '이메일로 가입된 계정이 없습니다.';
+          loginMsg.style.display = 'block';
+        } else {
+          //다른 이유
+          loginMsg.textContent = '알 수 없는 오류가 발생했습니다.';
+          loginMsg.style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        loginMsg.textContent = '서버와의 통신 중 오류가 발생했습니다.';
+        loginMsg.style.display = 'block';
       }
     } else {
-      // 이메일 또는 비밀번호가 입력되지 않은 경우
-      loginMsg.textContent = "이메일과 비밀번호를 모두 입력해주세요.";
-      loginMsg.style.display = "block";
+      //이메일 또는 비밀번호가 입력을 안하면
+      loginMsg.textContent = '이메일과 비밀번호를 모두 입력해주세요.';
+      loginMsg.style.display = 'block';
     }
   });
 });
