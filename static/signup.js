@@ -79,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const response = await fetch(API_SERVER_DOMAIN + "users/signup/", {
         method: "POST",
-        credentials: 'include',
         headers: {
           "Content-Type": "application/json"
         },
