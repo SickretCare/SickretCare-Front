@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script
       src="https://kit.fontawesome.com/168f1e1640.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./static/set_timer.js"></script>
+    <script type="module" src="./static/set_timer.js"></script>
     <script src="./static/main_navbar.js"></script>
     <title>sickretCare</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="notch-area"></div>
     <div class="header-nav">
-        <a href="./main.html" class="arrow-left"
+      <a href="./main.html" class="arrow-left"
         ><i class="fa-solid fa-chevron-left"></i
       ></a>
       <span class="title">타이머 설정</span>
@@ -26,13 +26,36 @@
         <div class="hamburger"></div>
       </div>
       <div class="dropdown-menu">
-        <button class="dropdown_button"><img src="./img/mainnav/mainnav_bell_img.png" id="drop1" alt=""></button>
-        <button class="dropdown_button"><img src="./img/mainnav/mainnav_timer_img.png" id="drop2" alt=""></button>
-        <button class="dropdown_button"><img src="./img/mainnav/mainnav_shop_img.png" id="drop3" alt=""></button>
-        <button class="dropdown_button"><img src="./img/mainnav/mainnav_community_img.png" id="drop4" alt=""></button>
-        <button class="dropdown_button"><img src="./img/mainnav/mainnav_my_img.png" id="drop5" alt=""></button>
+        <button class="dropdown_button">
+          <a href="./alarm-set.html"
+            ><img src="./img/mainnav/mainnav_bell_img.png" id="drop1" alt=""
+          /></a>
+        </button>
+        <button class="dropdown_button">
+          <a href="./set_timer.html"
+            ><img src="./img/mainnav/mainnav_timer_img.png" id="drop2" alt=""
+          /></a>
+        </button>
+        <button class="dropdown_button">
+          <a href="./shop.html"
+            ><img src="./img/mainnav/mainnav_shop_img.png" id="drop3" alt=""
+          /></a>
+        </button>
+        <button class="dropdown_button">
+          <a href="./community_all.html"
+            ><img
+              src="./img/mainnav/mainnav_community_img.png"
+              id="drop4"
+              alt=""
+          /></a>
+        </button>
+        <button class="dropdown_button">
+          <a href="./mypage.html"
+            ><img src="./img/mainnav/mainnav_my_img.png" id="drop5" alt=""
+          /></a>
+        </button>
         <button class="logout_btn">로그아웃</button>
-      </div>    
+      </div>
     </div>
     <div class="main-content">
       <div class="timer-set-group">
@@ -43,5 +66,5 @@
       </div>
       <button class="timer-add-edit-btn">설정 완료</button>
     </div>
-</body>
+  </body>
 </html>
