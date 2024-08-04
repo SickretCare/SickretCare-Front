@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alarmGroup.innerHTML = `
         <div class="alarm-group-left">
           <div class="alarm-name">${alarm.title}</div>
-          <div class="alarm-clock">${alarm.time}</div>
+          <div class="alarm-clock">${alarm.hm}</div>
         </div>
         <div class="alarm-group-right">
           <div class="alarm-edit" data-index="${index}">편집</div>
@@ -100,14 +100,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const alarms = JSON.parse(localStorage.getItem("alarms") || "[]");
 
     alarms.forEach((alarm) => {
-      const { hours, minutes } = parseTime(alarm.time);
+      const { hours, minutes } = parseTime(alarm.hm);
 
       if (
         hours === currentHour &&
         minutes === currentMinute &&
         !alarm.dismissed
       ) {
-        alert(`알람: ${alarm.title} - ${alarm.time} 시간됐어요!`);
+        alert(`알람: ${alarm.title} - ${alarm.hm} 시간됐어요!`);
         // 알람을 울린 후 dismissed 상태로 표시
         alarm.dismissed = true;
         localStorage.setItem("alarms", JSON.stringify(alarms));
