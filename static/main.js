@@ -73,9 +73,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             const postDiv = document.createElement('div');
             postDiv.className = 'community_popular_content_tab';
             postDiv.innerHTML = `
-                <span id="community_pop_title">${post.title}</span><br>
+                <span id="community_pop_title">${truncateText(post.title, 20)}</span><br>
                 <div class="community_pop_subcontainer">
-                    <span id="community_pop_subtitle">${post.content}</span>
+                    <span id="community_pop_subtitle">${truncateText(post.content, 50)}</span>
                 </div>
                 <div class="like-container">
                     <i class="fa-solid fa-heart like-icon"></i>
@@ -91,3 +91,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         popularContainer.appendChild(errorMsg);
     }
 });
+
+//텍스트를 일정 길이로 자르고 '...'을 추가하는 함수
+function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+        return text.slice(0, maxLength) + '...';
+    }
+    return text;
+}

@@ -207,11 +207,21 @@
     font-size: 14px;
     color: white;
     font-weight: bold;
+    display: inline-block;
+    max-width: 100%; /* 필요에 따라 조정 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #community_pop_subtitle {
     font-size: 12px;
     color: #ccc;
+    display: inline-block;
+    max-width: 100%; /* 필요에 따라 조정 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .community_pop_subcontainer{
