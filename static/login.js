@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loginMsg.style.display = "none";
 
-  // 페이지 로드 시 자동 로그인 처리
-  const accessToken = getCookie("access_token");
-  if (accessToken) {
-    window.location.href = "./main.html";
-  }
+  // // 페이지 로드 시 자동 로그인 처리
+  // const accessToken = getCookie("access_token");
+  // if (accessToken) {
+  //   window.location.href = "./main.html";
+  // }
 
   loginBtn.addEventListener("click", async function (e) {
     e.preventDefault();

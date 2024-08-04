@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (response.ok) {
-        deleteCookie("access_token");
-        deleteCookie("refresh_token");
+        // deleteCookie("access_token");
+        // deleteCookie("refresh_token");
         window.location.href = "/login.html";
       } else {
         if (response.status === 401) {
