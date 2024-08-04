@@ -6,7 +6,7 @@ const accessToken = getCookie("access_token");
 document.addEventListener("DOMContentLoaded", () => {
   const alarmContainer = document.getElementById("alarm-container");
 
-  // 알람 로드하는 함수
+  // 알람 목록 로드 함수
   function loadAlarms() {
     if (!accessToken) {
       alert("로그인되지 않았습니다.");
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then((alarms) => {
         alarmContainer.innerHTML = "";
+        localStorage.setItem("alarms", JSON.stringify(alarms)); // 알람 데이터 localStorage에 저장
         alarms.forEach((alarm, index) => {
           const alarmElement = createAlarmElement(alarm, index);
           alarmContainer.appendChild(alarmElement);
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     alarmGroup.className = "alarm-group";
     alarmGroup.innerHTML = `
         <div class="alarm-group-left">
-          <div class="alarm-name">${alarm.name}</div>
+          <div class="alarm-name">${alarm.title}</div>
           <div class="alarm-clock">${alarm.time}</div>
         </div>
         <div class="alarm-group-right">
@@ -55,28 +56,39 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
 
     const editButton = alarmGroup.querySelector(".alarm-edit");
-    editButton.addEventListener("click", () => editAlarm(index));
+    editButton.addEventListener("click", () => editAlarm(alarm.id));
 
     const deleteButton = alarmGroup.querySelector(".alarm-delete");
-    deleteButton.addEventListener("click", () => deleteAlarm(index));
+    deleteButton.addEventListener("click", () => deleteAlarm(alarm.id));
 
     return alarmGroup;
   }
 
   // 알람 편집하는 함수
-  function editAlarm(index) {
-    const alarms = JSON.parse(localStorage.getItem("alarms") || "[]");
-    const alarm = alarms[index];
-    const encodedAlarm = encodeURIComponent(JSON.stringify(alarm));
-    window.location.href = `./alarm-add-edit.html?edit=true&alarm=${encodedAlarm}&index=${index}`;
+  function editAlarm(alarmId) {
+    window.location.href = `./alarm-add-edit.html?edit=true&id=${alarmId}`;
   }
 
   // 알람 삭제하는 함수
-  function deleteAlarm(index) {
-    const alarms = JSON.parse(localStorage.getItem("alarms") || "[]");
-    alarms.splice(index, 1);
-    localStorage.setItem("alarms", JSON.stringify(alarms));
-    loadAlarms();
+  function deleteAlarm(alarmId) {
+    if (confirm("정말로 이 알람을 삭제하시겠습니까?")) {
+      fetch(API_SERVER_DOMAIN + `notifications/alarm/${alarmId}/`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("알람 삭제에 실패했습니다.");
+          }
+          loadAlarms(); // 알람 목록 새로고침
+        })
+        .catch((error) => {
+          console.error("알람 삭제 실패:", error);
+          alert("알람을 삭제하는 데 오류가 발생했습니다.");
+        });
+    }
   }
 
   // 알람 체크 함수
@@ -89,15 +101,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     alarms.forEach((alarm) => {
       const { hours, minutes } = parseTime(alarm.time);
-      if (hours === currentHour && minutes === currentMinute) {
-        alert(`알람: ${alarm.name} - ${alarm.time} 시간됐어요!`);
-        // 알람을 울린 후 제거 (원하는 동작에 따라 변경 가능)
-        const index = alarms.indexOf(alarm);
-        if (index > -1) {
-          alarms.splice(index, 1);
-          localStorage.setItem("alarms", JSON.stringify(alarms));
-          loadAlarms();
-        }
+
+      if (
+        hours === currentHour &&
+        minutes === currentMinute &&
+        !alarm.dismissed
+      ) {
+        alert(`알람: ${alarm.title} - ${alarm.time} 시간됐어요!`);
+        // 알람을 울린 후 dismissed 상태로 표시
+        alarm.dismissed = true;
+        localStorage.setItem("alarms", JSON.stringify(alarms));
       }
     });
   }
@@ -109,13 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 시간 문자열 파싱 함수
   function parseTime(timeString) {
-    const [period, time] = timeString.split(" ");
-    let [hours, minutes] = time.split(":").map(Number);
-    if (period === "오후" && hours !== 12) {
-      hours += 12;
-    } else if (period === "오전" && hours === 12) {
-      hours = 0;
-    }
+    const [hours, minutes] = timeString.split(":").map(Number);
     return { hours, minutes };
   }
 });
