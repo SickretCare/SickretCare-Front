@@ -3,6 +3,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const shopContainer = document.querySelector('.shop_container');
     let allProducts = [];
 
+    // 쿠키에서 accessToken을 가져오는 함수
+    function getCookie(name) {
+        let value = `; ${document.cookie}`;
+        let parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+    // accessToken 가져오기
+    const accessToken = getCookie("access_token");
+
     function createStars(rating) {
         const fullStars = Math.floor(rating);
         const halfStar = rating % 1 !== 0;
@@ -29,10 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
         productTab.classList.add('shop_tab');
         productTab.innerHTML = `
             <img src="${product.image_link}" alt="상품 사진" />
-            <span>${product.title}</span>
+            <span>${truncateText(product.title, 17)}</span>
             <span><span>${product.price.toLocaleString()}</span>원</span>
             <div class="stars">${createStars(product.stars)}</div>
         `;
+        productTab.addEventListener('click', function() {
+            window.location.href = product.link;
+        });
         shopContainer.appendChild(productTab);
     }
 
@@ -47,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(`${API_SERVER_DOMAIN}posts/commodity/list/`, {
             method: 'GET',
             headers: {
-                'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIyNTM1OTYyLCJpYXQiOjE3MjI1MzUwNjIsImp0aSI6ImZjYjdkMzQxZjhlYzQwN2RhYzYxMjhmOWIwOGJiMWIyIiwidXNlcl9pZCI6MX0.qbs66A5yF8XBEneWnMqTXOcbjuGGQyOypp4fsLrpUZo',
+                Authorization: `Bearer ${accessToken}`,
             }
         })
         .then(response => {
@@ -72,17 +84,39 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function activateButton(button) {
+        document.querySelectorAll('.hashtag_button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        button.classList.add('active');
+    }
+
     document.querySelectorAll('.hashtag_button').forEach(button => {
         button.addEventListener('click', function() {
             const category = this.dataset.category;
             filterProducts(category);
+            activateButton(this);
         });
     });
 
     document.getElementById('hashtag_all').addEventListener('click', function() {
         filterProducts('');
+        activateButton(this);
     });
+
+    // "모두 보기" 버튼을 처음부터 활성화 상태로 설정
+    const allButton = document.getElementById('hashtag_all');
+    allButton.classList.add('active');
 
     // 페이지 로드 시 전체 제품 목록을 가져옴
     fetchProducts();
 });
+
+//텍스트를 일정 길이로 자르고 '...'을 추가하는 함수
+function truncateText(text, maxLength) {
+    if (text.length > maxLength) {
+        return text.slice(0, maxLength) + '...';
+    }
+    return text;
+}
+
