@@ -1,4 +1,21 @@
+import { getCookie, getAccessTokenWithRefreshToken } from './tokenUtils.js';
+
 document.addEventListener('DOMContentLoaded', async () => {
+    // Access Token을 쿠키에서 가져오고, 필요 시 Refresh Token으로 갱신
+    let accessToken = getCookie('access_token');
+    const refreshToken = getCookie('refresh_token');
+
+    if (!accessToken && refreshToken) {
+        try {
+            accessToken = await getAccessTokenWithRefreshToken(refreshToken);
+            // 갱신된 토큰을 쿠키에 저장
+            document.cookie = `access_token=${accessToken}; path=/`;
+        } catch (error) {
+            console.error('Error refreshing access token:', error);
+            window.location.href = './login.html'; // 리프레시 토큰으로도 인증 실패 시 로그인 페이지로 이동
+        }
+    }
+
     // 슬라이드 기능
     let currentIndex = 0;
     const slides = document.querySelector('.slides');
@@ -49,29 +66,33 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = './liked-posts.html';
     });
 
-    //커뮤니티 인기 게시물 불러오기
+    // 커뮤니티 인기 게시물 불러오기
     const popularContainer = document.querySelector('.community_popular');
     const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/posts/list/';
     const category = '전체';
     const orderBy = '좋아요순'; 
 
     try {
-        const response = await fetch(`${API_SERVER_DOMAIN}?category=${encodeURIComponent(category)}&order_by=${encodeURIComponent(orderBy)}`);
+        const response = await fetch(`${API_SERVER_DOMAIN}?category=${encodeURIComponent(category)}&order_by=${encodeURIComponent(orderBy)}`, {
+            headers: {
+                'Authorization': `Bearer ${accessToken}` // Access Token을 헤더에 포함
+            }
+        });
         if (!response.ok) {
             throw new Error('유유유 불러오지 못했어요 ㅠㅠㅠ');
         }
         const data = await response.json();
 
-        //기존 게시물 제거
+        // 기존 게시물 제거
         popularContainer.innerHTML = '';
 
-        //게시물의 처음 3개만 표시되도록 해주자
+        // 게시물의 처음 3개만 표시되도록 해주자
         const postsToShow = data.slice(0, 3);
 
         postsToShow.forEach(post => {
-            console.log(post);
             const postDiv = document.createElement('div');
             postDiv.className = 'community_popular_content_tab';
+            postDiv.setAttribute('data-post-id', post.id);
             postDiv.innerHTML = `
                 <span id="community_pop_title">${truncateText(post.title, 20)}</span><br>
                 <div class="community_pop_subcontainer">
@@ -84,6 +105,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             `;
             popularContainer.appendChild(postDiv);
         });
+
+        // 게시글 클릭 이벤트 핸들러 추가
+        document.querySelectorAll('.community_popular_content_tab').forEach(element => {
+            element.addEventListener('click', () => {
+                const postId = element.getAttribute('data-post-id');
+                window.location.href = `./community_detail.html?id=${postId}`;
+            });
+        });
     } catch (error) {
         console.error('Error fetching popular posts:', error);
         const errorMsg = document.createElement('div');
@@ -92,7 +121,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-//텍스트를 일정 길이로 자르고 '...'을 추가하는 함수
+// 텍스트를 일정 길이로 자르고 '...'을 추가하는 함수
 function truncateText(text, maxLength) {
     if (text.length > maxLength) {
         return text.slice(0, maxLength) + '...';
