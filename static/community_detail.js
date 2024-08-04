@@ -101,4 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
             sendButton.disabled = true;
         }
     });
+
+
 });

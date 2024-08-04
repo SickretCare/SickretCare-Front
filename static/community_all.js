@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const hashtagButtons = document.querySelectorAll('.hashtag_container button');
     const sortLinks = document.querySelectorAll('.sort_buttons .sort-link');
+    const writeButton = document.querySelector('.write_btn');
 
     function selectHashtagButton(button) {
         hashtagButtons.forEach(btn => btn.classList.remove('selected-button'));
@@ -89,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 정렬 링크 클릭 이벤트 핸들러
+    //정렬 링크 클릭 이벤트 핸들러
     sortLinks.forEach(lnk => {
         lnk.addEventListener('click', (event) => {
             event.preventDefault(); // 기본 링크 동작 방지
@@ -98,5 +99,10 @@ document.addEventListener("DOMContentLoaded", () => {
             orderBy = lnk.textContent === '좋아요순' ? '좋아요순' : '최신순'; 
             fetchPosts(); // 게시글 재로드
         });
+    });
+
+    //작성 버튼 클릭 이벤트 핸들러
+    writeButton.addEventListener('click', () => {
+        window.location.href = './write_community.html'; // 이동할 페이지 URL로 변경
     });
 });
