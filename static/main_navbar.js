@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutButton.addEventListener("click", async function () {
     if (!accessToken) {
       alert("로그인 상태가 아닙니다.");
-      window.location.href = "/login.html";
+      window.location.href = "./login.html";
       return;
     }
 
@@ -46,10 +46,11 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         // deleteCookie("access_token");
         // deleteCookie("refresh_token");
-        window.location.href = "/login.html";
+        window.location.href = "./login.html";
       } else {
         if (response.status === 401) {
           alert("로그인 세션이 만료되었습니다. 다시 로그인해주세요.");
+          window.location.href = "./login.html";
         } else {
           alert("로그아웃에 실패했습니다.");
         }
