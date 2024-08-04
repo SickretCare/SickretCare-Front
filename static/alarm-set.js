@@ -1,15 +1,42 @@
+import { getCookie, getAccessTokenWithRefreshToken } from "./tokenUtils.js";
+
+const API_SERVER_DOMAIN = "http://3.36.216.93:8000/";
+const accessToken = getCookie("access_token");
+
 document.addEventListener("DOMContentLoaded", () => {
   const alarmContainer = document.getElementById("alarm-container");
 
   // 알람 로드하는 함수
   function loadAlarms() {
-    const alarms = JSON.parse(localStorage.getItem("alarms") || "[]");
-    alarmContainer.innerHTML = "";
+    if (!accessToken) {
+      alert("로그인되지 않았습니다.");
+      window.location.href = "./login.html";
+      return;
+    }
 
-    alarms.forEach((alarm, index) => {
-      const alarmElement = createAlarmElement(alarm, index);
-      alarmContainer.appendChild(alarmElement);
-    });
+    fetch(API_SERVER_DOMAIN + "notifications/alarm/", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("알람을 불러오는 데 실패했습니다.");
+        }
+        return response.json();
+      })
+      .then((alarms) => {
+        alarmContainer.innerHTML = "";
+        alarms.forEach((alarm, index) => {
+          const alarmElement = createAlarmElement(alarm, index);
+          alarmContainer.appendChild(alarmElement);
+        });
+      })
+      .catch((error) => {
+        console.error("알람 로드 실패:", error);
+        alert("알람을 로드하는 데 오류가 발생했습니다.");
+      });
   }
 
   // 알람 요소 생성하는 함수
@@ -60,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const alarms = JSON.parse(localStorage.getItem("alarms") || "[]");
 
-    alarms.forEach(alarm => {
+    alarms.forEach((alarm) => {
       const { hours, minutes } = parseTime(alarm.time);
       if (hours === currentHour && minutes === currentMinute) {
         alert(`알람: ${alarm.name} - ${alarm.time} 시간됐어요!`);
