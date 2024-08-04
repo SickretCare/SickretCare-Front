@@ -42,3 +42,8 @@
 .stars .fa-star-o {
     color: #5A5A5A; /* grey color for empty stars */
 }
+
+.hashtag_button.active {
+    background-color: #007bff;
+    color: white;
+}

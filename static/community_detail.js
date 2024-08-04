@@ -1,5 +1,7 @@
+const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/'
+
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = 'http://3.36.216.93:8000/posts/get/';
+    const apiUrl = API_SERVER_DOMAIN + 'posts/get/';
     const postId = getPostIdFromUrl();
 
     if (postId) {
