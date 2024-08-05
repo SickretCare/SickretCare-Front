@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // 커뮤니티 인기 게시물 불러오기
         const popularContainer = document.querySelector('.community_popular');
-        const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/posts/list/';
+        const API_SERVER_DOMAIN = 'https://sickretcare.store/posts/list/';
         const category = '전체';
         const orderBy = '좋아요순'; 
 

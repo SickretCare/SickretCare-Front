@@ -1,6 +1,6 @@
 import { getCookie, getAccessTokenWithRefreshToken } from "./tokenUtils.js";
 
-const API_SERVER_DOMAIN = "http://3.36.216.93:8000/";
+const API_SERVER_DOMAIN = "https://sickretcare.store/";
 
 const accessToken = getCookie("access_token");
 

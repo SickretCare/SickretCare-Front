@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginMsg = document.getElementById("login-msg");
   const rememberMeCheckbox = document.getElementById("rememberMe");
 
-  const API_SERVER_DOMAIN = "http://3.36.216.93:8000/";
+  const API_SERVER_DOMAIN = "https://sickretcare.store/";
 
   loginMsg.style.display = "none";
 

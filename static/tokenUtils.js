@@ -1,4 +1,4 @@
-const API_SERVER_DOMAIN = "http://3.36.216.93:8000/";
+const API_SERVER_DOMAIN = "https://sickretcare.store/";
 
 // 쿠키에서 특정 이름의 값을 가져오는 함수
 function getCookie(name) {
