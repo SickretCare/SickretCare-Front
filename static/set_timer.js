@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 타이머 페이지로 이동
       window.location.href = "./main.html";
     } else {
-      alert("타이머를 설정해 주세요.");
+      console.log("타이머를 설정해 주세요.");
     }
   });
 

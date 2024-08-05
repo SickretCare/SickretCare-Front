@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       nicknameInput.value = result.nickname;
     } else if (response.status === 401) {
       alert("로그인이 필요합니다.");
-      window.location.href = "./login.html";
+      window.location.href = "./main.html";
     } else {
       alert("회원 정보를 불러오는 데 실패했습니다.");
     }
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           alert("기존 비밀번호가 틀리거나 비밀번호 입력이 올바르지 않습니다.");
         } else if (response.status === 401) {
           alert("로그인이 필요합니다.");
-          window.location.href = "./login.html";
+          window.location.href = "./main.html";
         } else {
           alert("회원 정보를 수정하는 데 실패했습니다.");
         }

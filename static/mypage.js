@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       profileNickname.textContent = result.nickname;
     } else if (response.status === 401) {
       alert("로그인이 필요합니다.");
-      window.location.href = "./login.html";
+      window.location.href = "./main.html";
     } else {
       alert("회원 정보를 불러오는 데 실패했습니다.");
     }

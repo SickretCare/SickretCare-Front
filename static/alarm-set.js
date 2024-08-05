@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 알람 목록 로드 함수
   function loadAlarms() {
     if (!accessToken) {
-      alert("로그인되지 않았습니다.");
+      console.log("로그인되지 않았습니다.");
       window.location.href = "./login.html";
       return;
     }
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => {
         console.error("알람 로드 실패:", error);
-        alert("알람을 로드하는 데 오류가 발생했습니다.");
+        console.log("알람을 로드하는 데 오류가 발생했습니다.");
       });
   }
 
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((error) => {
           console.error("알람 삭제 실패:", error);
-          alert("알람을 삭제하는 데 오류가 발생했습니다.");
+          console.log("알람을 삭제하는 데 오류가 발생했습니다.");
         });
     }
   }
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         minutes === currentMinute &&
         !alarm.dismissed
       ) {
-        alert(`알람: ${alarm.title} - ${alarm.hm} 시간됐어요!`);
+        console.log(`알람: ${alarm.title} - ${alarm.hm} 시간됐어요!`);
         // 알람을 울린 후 dismissed 상태로 표시
         alarm.dismissed = true;
         localStorage.setItem("alarms", JSON.stringify(alarms));
