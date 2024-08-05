@@ -114,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
         if (!Array.isArray(comments) || comments.length === 0) {
             const noCommentsMessage = document.createElement('div');
-            noCommentsMessage.textContent = "댓글이 없습니다.";
             commentContainer.appendChild(noCommentsMessage);
             return;
         }
@@ -181,31 +180,64 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function setupLikeButton(initialLikes) {
+    function setupLikeButton(initialLikes, token) {
         const heartButton = document.getElementById('heart');
         const likeCount = document.getElementById('like-count');
         let likes = initialLikes;
-
+    
         heartButton.classList.toggle('active', likes > 0);
         heartButton.classList.toggle('fas', likes > 0);
         heartButton.classList.toggle('far', likes <= 0);
-
+    
         heartButton.addEventListener('click', function() {
-            heartButton.classList.toggle('active');
-            heartButton.classList.toggle('fas');
-            heartButton.classList.toggle('far');
-
-            if (heartButton.classList.contains('active')) {
-                likes++;
-            } else {
-                likes--;
-            }
-
-            likeCount.textContent = likes;
-
-            // 서버에 좋아요 수를 업데이트하는 요청을 추가
+            const isLiked = heartButton.classList.contains('active');
+    
+            fetch(`${API_SERVER_DOMAIN}posts/like/${postId}/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${accessToken}`, 
+                },
+                body: JSON.stringify({ like: !isLiked })
+            })
+            .then(response => {
+                if (response.status === 401) {
+                    alert('로그인되지 않은 경우입니다.');
+                    return;
+                }
+                if (response.status === 404) {
+                    alert('해당 아이디의 게시물이 존재하지 않습니다.');
+                    return;
+                }
+                if (!response.ok) {
+                    throw new Error('서버 응답 오류');
+                }
+                return response.text().then(text => text ? JSON.parse(text) : {}); // 응답이 빈 경우 빈 객체 반환
+                // return response.json();
+            })
+            .then(data => {
+                if (data) {
+                    heartButton.classList.toggle('active');
+                    heartButton.classList.toggle('fas');
+                    heartButton.classList.toggle('far');
+    
+                    if (heartButton.classList.contains('active')) {
+                        likes++;
+                        alert('공감을 눌렀습니다.');
+                    } else {
+                        likes--;
+                        alert('공감을 취소했습니다.');
+                    }
+    
+                    likeCount.textContent = likes;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         });
     }
+    
 
     function deletePost(postId) {
         const url = `${apiUrl}${postId}/`;
