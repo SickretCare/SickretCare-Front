@@ -1,4 +1,4 @@
-const API_SERVER_DOMAIN = "http://3.36.216.93:8000/";
+const API_SERVER_DOMAIN = "https://sickretcare.store/";
 
 document.addEventListener("DOMContentLoaded", function () {
   const apiUrl = API_SERVER_DOMAIN + "posts/get/";

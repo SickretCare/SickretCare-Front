@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nickname: nickname
     };
     
-    const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/';
+    const API_SERVER_DOMAIN = 'https://sickretcare.store/';
     try {
       const response = await fetch(API_SERVER_DOMAIN + "users/signup/", {
         method: "POST",

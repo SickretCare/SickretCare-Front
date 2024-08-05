@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // accessToken 가져오기
   const accessToken = getCookie("access_token");
 
-  const API_SERVER_DOMAIN = "http://3.36.216.93:8000/";
+  const API_SERVER_DOMAIN = "https://sickretcare.store/";
 
   try {
     const response = await fetch(API_SERVER_DOMAIN + "users/", {

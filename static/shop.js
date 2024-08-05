@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const API_SERVER_DOMAIN = 'http://3.36.216.93:8000/';
+    const API_SERVER_DOMAIN = 'https://sickretcare.store/';
     const shopContainer = document.querySelector('.shop_container');
     let allProducts = [];
 

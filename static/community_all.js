@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const apiUrl = 'http://3.36.216.93:8000/posts/list/';
+    const apiUrl = 'https://sickretcare.store/posts/list/';
     let category = '전체';  // 기본 카테고리
     let orderBy = '최신순'; // 기본 정렬 기준
 
