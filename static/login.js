@@ -34,12 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loginMsg.style.display = "none";
 
-  // // 페이지 로드 시 자동 로그인 처리
-  // const accessToken = getCookie("access_token");
-  // if (accessToken) {
-  //   window.location.href = "./main.html";
-  // }
-
   loginBtn.addEventListener("click", async function (e) {
     e.preventDefault();
 
@@ -59,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const result = await response.json();
 
         if (response.status === 200) {
-          setCookie("access_token", result.access_token, 15);
+          setCookie("access_token", result.access_token, 1 / 24); // 유효 기간을 1시간으로 설정
           setCookie("refresh_token", result.refresh_token, 180);
 
           window.location.href = "./main.html";

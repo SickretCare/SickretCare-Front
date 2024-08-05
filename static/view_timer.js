@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return data;
     } catch (error) {
       console.error("Failed to fetch timer info:", error);
-      alert("타이머 정보를 가져오는 데 실패했습니다.");
+      console.log("타이머 정보를 가져오는 데 실패했습니다.");
       window.location.href = "./main.html";
     }
   }
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         parseInt(localStorage.getItem("timerDuration"), 10) * 60; // 분을 초로 변환
 
       if (isNaN(endTime) || isNaN(totalTime) || endTime <= Date.now()) {
-        alert("타이머 설정이 잘못되었습니다.");
+        console.log("타이머 설정이 잘못되었습니다.");
         window.location.href = "./main.html";
         return;
       }
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (timeLeft > 0) {
           requestAnimationFrame(updateTimer);
         } else {
-          alert("타이머가 종료되었습니다.");
+          console.log("타이머가 종료되었습니다.");
           window.location.href = "./main.html";
         }
       }

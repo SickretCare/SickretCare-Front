@@ -43,32 +43,33 @@ function getAccessTokenWithRefreshToken(refreshToken) {
 }
 
 async function refreshAccessToken() {
-  const refreshToken = getCookie('refresh_token');
-  
-  if (!refreshToken) {
-      window.location.href = '/login'; // 리프레시 토큰이 없으면 로그인 페이지로 이동
-      return;
-  }
-  
-  try {
-      const response = await fetch('/users/refresh/', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ refresh_token: refreshToken })
-      });
+  const refreshToken = getCookie("refresh_token");
 
-      if (response.status === 200) {
-          const data = await response.json();
-          setCookie('access_token', data.access_token, 1); // 새로운 액세스 토큰을 쿠키에 설정
-      } else {
-          window.location.href = '/login'; // 401 응답이면 로그인 페이지로 이동
-      }
+  if (!refreshToken) {
+    window.location.href = "/login"; // 리프레시 토큰이 없으면 로그인 페이지로 이동
+    return;
+  }
+
+  try {
+    const response = await fetch("/users/refresh/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ refresh_token: refreshToken }),
+    });
+
+    if (response.status === 200) {
+      const data = await response.json();
+      setCookie("access_token", data.access_token, 1); // 새로운 액세스 토큰을 쿠키에 설정
+    } else {
+      alert("로그인이 필요합니다.");
+      window.location.href = "./main.html";
+    }
   } catch (error) {
-      console.error('Error refreshing access token:', error);
+    console.error("Error refreshing access token:", error);
   }
 }
 
 // 모듈을 외부에서 사용할 수 있도록 export
-export { getCookie, getAccessTokenWithRefreshToken, refreshAccessToken};
+export { getCookie, getAccessTokenWithRefreshToken, refreshAccessToken };

@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
           alert("비밀번호가 틀렸거나 비밀번호 입력이 올바르지 않습니다.");
         } else if (response.status === 401) {
           alert("로그인이 필요합니다.");
-          window.location.href = "./login.html";
+          window.location.href = "./main.html";
         } else {
           alert("회원 탈퇴에 실패했습니다.");
         }

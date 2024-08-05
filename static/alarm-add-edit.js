@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 알람 단일 조회 함수
   function getAlarm(id) {
     if (!accessToken) {
-      alert("로그인되지 않았습니다.");
+      console.log("로그인되지 않았습니다.");
       window.location.href = "./login.html";
       return;
     }
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 알람 수정 함수
   function updateAlarm(id, title, time) {
     if (!accessToken) {
-      alert("로그인되지 않았습니다.");
+      console.log("로그인되지 않았습니다.");
       window.location.href = "./login.html";
       return;
     }
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 새로운 알람 생성하는 함수
   function createAlarm(title, time) {
     if (!accessToken) {
-      alert("로그인되지 않았습니다.");
+      console.log("로그인되지 않았습니다.");
       window.location.href = "./login.html";
       return;
     }
@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const minute = updateSelectedOption(minuteSelect);
 
     if (alarmName.trim() === "") {
-      alert("알람 이름을 입력해주세요.");
+      console.log("알람 이름을 입력해주세요.");
       return;
     }
 
