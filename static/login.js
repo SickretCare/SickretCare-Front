@@ -9,26 +9,12 @@ function setCookie(name, value, days) {
   document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-function getCookie(name) {
-  var nameEQ = name + "=";
-  var cookies = document.cookie.split(";");
-  for (var i = 0; i < cookies.length; i++) {
-    var cookie = cookies[i];
-    while (cookie.charAt(0) === " ") {
-      cookie = cookie.substring(1, cookie.length);
-    }
-    if (cookie.indexOf(nameEQ) === 0) {
-      return cookie.substring(nameEQ.length, cookie.length);
-    }
-  }
-  return null;
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   const loginBtn = document.querySelector(".login-btn");
   const emailInput = document.querySelector('input[type="email"]');
   const passwordInput = document.querySelector('input[type="password"]');
   const loginMsg = document.getElementById("login-msg");
+  const rememberMeCheckbox = document.getElementById("rememberMe");
 
   const API_SERVER_DOMAIN = "http://3.36.216.93:8000/";
 
@@ -53,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const result = await response.json();
 
         if (response.status === 200) {
-          setCookie("access_token", result.access_token, 1 / 24); // 유효 기간을 1시간으로 설정
+          const accessTokenExpiry = rememberMeCheckbox.checked ? 15 : 1 / 24;
+          setCookie("access_token", result.access_token, accessTokenExpiry);
           setCookie("refresh_token", result.refresh_token, 180);
 
           window.location.href = "./main.html";
