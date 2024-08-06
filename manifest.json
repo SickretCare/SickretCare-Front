@@ -1,6 +1,6 @@
 {
   "name": "Sickret Care",
-  "short_name": "SC",
+  "short_name": "Sickret Care",
   "icons": [
     {
       "src": "./img/logo.png",
@@ -8,8 +8,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": "https://sickretcare.site/",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#121212",
-  "theme_color": "#f1718c"
+  "background_color": "#262626",
+  "theme_color": "#262626"
 }
