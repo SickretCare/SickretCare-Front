@@ -11,7 +11,7 @@
     height: 141px;
     box-sizing: border-box; /* padding과 border를 포함한 박스 크기 계산 */
     padding: 16px; /* 선택사항: 내부 여백 추가 */
-    margin-bottom: 50px;
+    margin-bottom: 70px;
     margin-right: 30px;
     color: white;
 }

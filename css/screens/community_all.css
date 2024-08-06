@@ -164,7 +164,7 @@
 /* scroll */
 .scrollable-content {
   max-height: calc(
-    100vh - 200px
+    100vh - 100px
   ); /* 화면 높이에서 헤더 및 하단 네비게이션 바 높이만큼 제외 */
   overflow-y: auto;
 }
