@@ -1,15 +1,15 @@
 {
-    "name": "Sickret Care",
-    "short_name": "SC",
-    "icons": [
-        {
-            "src": "./img/main_logo.png",
-            "sizes": "128x128",
-            "type": "image/png"
-        }
-    ],
-    "start_url": "https://sickretcare.site/",
-    "display": "standalone",
-    "background_color": "#121212",
-    "theme_color": "#f1718c"
+  "name": "Sickret Care",
+  "short_name": "SC",
+  "icons": [
+    {
+      "src": "./img/logo.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "https://sickretcare.site/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#f1718c"
 }
